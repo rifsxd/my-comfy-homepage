@@ -1,0 +1,146 @@
+/* Variables */
+:root {
+    --card-width: 180px;
+    --card-height: 180px;
+    --expanded-card-width: 180px;
+    --expanded-card-height: 400px;
+    --content-width: 80%;
+    --content-height: 80%;
+    --transition-duration: 0.3s;
+    --searchbar-width: 100%;
+    --card-spacing: 4px;
+    --content-spacing: 4px;
+  }
+  
+  body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #282828;
+  }
+  
+  #container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .sqr {
+    display: inline-block;
+    width: var(--card-width);
+    height: var(--card-height);
+    margin: var(--card-spacing);
+    border: 0 solid #000000;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background-color: rgb(250, 189, 47);
+    transition: height var(--transition-duration) ease-in-out, width var(--transition-duration) ease-in-out;
+  }
+  
+  .sqr:hover {
+    height: var(--expanded-card-height);
+    width: var(--expanded-card-width);
+    border-top: 6px solid #EBDBB2; /* Add this line for the top border on hover */
+    border-bottom: 6px solid #EBDBB2; /* Add this line for the bottom border on hover */
+  }
+  
+  
+  .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--content-width);
+    height: var(--content-height);
+    opacity: 0;
+    transition: opacity var(--transition-duration) ease, transform var(--transition-duration) ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sqr:hover .content {
+    opacity: 1;
+  }
+  
+  .content a {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 14px;
+    color: rgb(60, 56, 54);
+    margin: var(--content-spacing);
+    text-decoration: none;
+    line-height: 25px;
+    display: block;
+  }
+  
+  .sqr span {
+    line-height: var(--card-height); /* Centering vertically */
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 18px;
+    color: rgb(40, 40, 40);
+  }
+  
+  #searchinput {
+    padding: 5px;
+    border: none;
+    width: var(--searchbar-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #EBDBB2;
+  }
+
+  #searchinput:focus {
+    outline: none;
+    border: none;
+  }
+
+  #selectedSearchEngineText {
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 14px;
+    color: rgb(60, 56, 54);
+    margin: var(--content-spacing);
+    text-decoration: none;
+    line-height: 25px;
+    display: block;
+  }
+
+  #greetingContainer {
+    position: fixed; /* Change from absolute to fixed */
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 20px;
+    text-align: center;
+    z-index: 1; /* Ensure it's above the cards */
+    color: #EBDBB2; /* Set the text color */
+  }
+
+  #timeContainer {
+    position: fixed; /* Change from absolute to fixed */
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 30px;
+    text-align: center;
+    z-index: 1; /* Ensure it's above the cards */
+    color: #EBDBB2; /* Set the text color */
+  }
+
+  #version {
+    z-index: 1;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+  
