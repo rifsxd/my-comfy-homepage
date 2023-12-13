@@ -50,8 +50,27 @@
             </div>
         </div>
     </div>
+    <div id="editButton" onclick="toggleEditDropdown()">
+        <div id="editIcon"></div>
+    </div>
+    
+    <div id="editDropdown">
+        <div class="editOption" onclick="openEditLink('https://github.com/rifsxd/my-comfy-homepage/edit/main/index.html')">HTML Edit</div>
+        <div class="editOption" onclick="openEditLink('https://github.com/rifsxd/my-comfy-homepage/edit/main/css/style.css')">CSS Edit</div>
+    </div>
 
     <script>
+
+        function toggleEditDropdown() {
+            var dropdown = document.getElementById("editDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+
+        function openEditLink(link) {
+            window.open(link, "_blank");
+            toggleEditDropdown(); // Hide the dropdown after clicking an option
+        }
+
         // Function to get the host machine username
         function getHostUsername() {
             // Placeholder username for demonstration
@@ -66,11 +85,13 @@
             var hours = currentTime.getHours();
             var minutes = currentTime.getMinutes();
 
-            // Format minutes with leading zero if less than 10
+            // Format hours and minutes with leading zero if less than 10
+            hours = hours < 10 ? "0" + hours : hours;
             minutes = minutes < 10 ? "0" + minutes : minutes;
 
             currentTimeElement.textContent =  hours + ":" + minutes;
         }
+
 
         // Call updateTime function every second to keep the time updated
         setInterval(updateTime, 1000);

@@ -36,11 +36,11 @@
     width: var(--card-width);
     height: var(--card-height);
     margin: var(--card-spacing);
-    border: 0 solid #000000;
+    border: 0 solid #282828;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    background-color: rgb(250, 189, 47);
+    background-color: #FABD2F;
     transition: height var(--transition-duration) ease-in-out, width var(--transition-duration) ease-in-out;
   }
   
@@ -75,7 +75,7 @@
   .content a {
     font-family: 'JetBrainsMono Nerd Font';
     font-size: 14px;
-    color: rgb(60, 56, 54);
+    color: #282828;
     margin: var(--content-spacing);
     text-decoration: none;
     line-height: 25px;
@@ -86,7 +86,7 @@
     line-height: var(--card-height); /* Centering vertically */
     font-family: 'JetBrainsMono Nerd Font';
     font-size: 18px;
-    color: rgb(40, 40, 40);
+    color: #282828;
   }
   
   #searchinput {
@@ -135,6 +135,42 @@
     text-align: center;
     z-index: 1; /* Ensure it's above the cards */
     color: #EBDBB2; /* Set the text color */
+  }
+
+  #editButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  #editIcon {
+    width: 30px;
+    height: 30px;
+    background: url('../assets/edit.png') center/cover no-repeat; /* Replace with your edit icon image URL */
+  }
+
+  #editDropdown {
+    display: none;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    background: #EBDBB2;
+    box-shadow: 0 2px 5px #282828;
+    padding: 10px;
+    z-index: 1;
+    
+  }
+
+  .editOption {
+    cursor: pointer;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 15px;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 5px;
+    color: #282828;
   }
 
   #version {
