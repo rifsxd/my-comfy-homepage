@@ -50,33 +50,24 @@
             </div>
         </div>
     </div>
-    <div id="editButton" onclick="toggleEditDropdown()">
-        <div id="editIcon"></div>
+
+    <div id="editIcon" onclick="toggleEditMenu()">
+        <img src="assets/edit.png" alt="Edit Icon">
     </div>
-    
-    <div id="editDropdown">
-        <div class="editOption" onclick="openEditLink('https://github.com/rifsxd/my-comfy-homepage/edit/main/index.html')">HTML Edit</div>
-        <div class="editOption" onclick="openEditLink('https://github.com/rifsxd/my-comfy-homepage/edit/main/css/style.css')">CSS Edit</div>
+
+    <div id="editMenu">
+        <a href="https://github.com/rifsxd/my-comfy-homepage/edit/main/index.html" class="editLink" target="_blank">Edit
+            Code</a>
+        <a href="https://github.com/rifsxd/my-comfy-homepage/edit/main/css/style.css" class="editLink"
+            target="_blank">Edit Style</a>
     </div>
 
     <script>
-
-        function toggleEditDropdown() {
-            var dropdown = document.getElementById("editDropdown");
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-
-        function openEditLink(link) {
-            window.open(link, "_blank");
-            toggleEditDropdown(); // Hide the dropdown after clicking an option
-        }
-
         // Function to get the host machine username
         function getHostUsername() {
             // Placeholder username for demonstration
             return "RifsxD";
         }
-
 
         // Function to update the displayed time
         function updateTime() {
@@ -89,7 +80,7 @@
             hours = hours < 10 ? "0" + hours : hours;
             minutes = minutes < 10 ? "0" + minutes : minutes;
 
-            currentTimeElement.textContent =  hours + ":" + minutes;
+            currentTimeElement.textContent = hours + ":" + minutes;
         }
 
 
@@ -116,7 +107,8 @@
         // Function to update the selected search engine text
         function updateSelectedSearchEngineText() {
             var selectedSearchEngineText = document.getElementById("selectedSearchEngineText");
-            selectedSearchEngineText.textContent = searchEngine.charAt(0).toUpperCase() + searchEngine.slice(1) + "!";
+            selectedSearchEngineText.textContent =
+                searchEngine.charAt(0).toUpperCase() + searchEngine.slice(1) + "!";
         }
 
         // Display greeting and update search engine text on page load
@@ -149,6 +141,11 @@
                 }
             }
         });
+
+        function toggleEditMenu() {
+            var editMenu = document.getElementById("editMenu");
+            editMenu.classList.toggle("show");
+        }
     </script>
 </body>
 
