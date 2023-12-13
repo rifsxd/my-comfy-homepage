@@ -148,7 +148,7 @@
   #editIcon {
     width: 30px;
     height: 30px;
-    background: url('../assets/edit.png') center/cover no-repeat; /* Replace with your edit icon image URL */
+    background: url('https://github.com/rifsxd/my-comfy-homepage//assets/edit.png') center/cover no-repeat; /* Replace with your edit icon image URL */
   }
 
   #editDropdown {
