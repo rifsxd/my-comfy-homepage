@@ -1,24 +1,22 @@
 /* Variables */
 :root {
-    --card-width: 180px;
-    --card-height: 180px;
-    --expanded-card-width: 180px;
-    --expanded-card-height: 400px;
-    --content-width: 80%;
-    --content-height: 80%;
-    --transition-duration: 0.3s;
-    --searchbar-width: 100%;
-    --card-spacing: 4px;
-    --content-spacing: 4px;
+  --card-size: 180px;
+  --expanded-card-height: 400px;
+  --expanded-card-width: 180px;
+  --content-size: 80%;
+  --transition-duration: 0.3s;
+  --spacing: 4px;
 }
 
+/* Font */
 @font-face {
   font-family: 'JetBrainsMono Nerd Font';
   src: url('../fonts/JetBrainsMonoNerdFont-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-  
+
+/* Body */
 body {
   overflow: hidden;
   margin: 0;
@@ -26,81 +24,106 @@ body {
   background-color: #282828;
   font-family: 'JetBrainsMono Nerd Font';
 }
-  
-#container {
+
+/* Container */
+#container,
+.content {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100vh;
   width: 100vw;
+}
+
+#container {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-  
+
+/* Square */
 .sqr {
   display: inline-block;
-  width: var(--card-width);
-  height: var(--card-height);
-  margin: var(--card-spacing);
+  width: var(--card-size);
+  height: var(--card-size);
+  margin: var(--spacing);
   border: 0 solid #282828;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   background-color: #FABD2F;
-  transition: height var(--transition-duration) ease-in-out, width var(--transition-duration) ease-in-out;
+  transition: all var(--transition-duration) ease-in-out;
 }
-  
+
+.sqr span {
+  line-height: var(--card-size);
+  font-size: 18px;
+  color: #282828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sqr .content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 100%);
+  opacity: 0;
+  transition: opacity var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
+  text-align: center;
+  width: 100%;
+}
+
 .sqr:hover {
   height: var(--expanded-card-height);
   width: var(--expanded-card-width);
-  border-top: 6px solid #EBDBB2; /* Add this line for the top border on hover */
-  border-bottom: 6px solid #EBDBB2; /* Add this line for the bottom border on hover */
+  border-top: 9px solid #EBDBB2;
+  border-bottom: 9px solid #EBDBB2;
 }
-  
-  
-.content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+
+.sqr:hover .content {
+  height: var(--expanded-card-height);
+  width: var(--expanded-card-width);
+  opacity: 1;
   transform: translate(-50%, -50%);
-  width: var(--content-width);
-  height: var(--content-height);
+}
+
+/* Content */
+.content {
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: var(--content-size);
   opacity: 0;
-  transition: opacity var(--transition-duration) ease, transform var(--transition-duration) ease;
+  transition: opacity var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-  
-.sqr:hover .content {
+
+.sqr:hover .content,
+.content {
   opacity: 1;
 }
-  
-.content a {
-  font-family: 'JetBrainsMono Nerd Font';
+
+/* Links */
+.content a, .editLink {
   font-size: 14px;
   color: #282828;
-  margin: var(--content-spacing);
+  margin: var(--spacing);
   text-decoration: none;
   line-height: 25px;
   display: block;
 }
-  
-.sqr span {
-  line-height: var(--card-height); /* Centering vertically */
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 18px;
-  color: #282828;
-}
-  
+
+/* Search Input */
 #searchinput {
   padding: 5px;
   border: none;
-  width: var(--searchbar-width);
+  width: 90%;
   margin: 0 auto;
   box-sizing: border-box;
   background-color: #EBDBB2;
@@ -111,60 +134,54 @@ body {
   border: none;
 }
 
-#selectedSearchEngineText {
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 14px;
-  color: rgb(60, 56, 54);
-  margin: var(--content-spacing);
-  text-decoration: none;
-  line-height: 25px;
-  display: block;
-}
-
-#greetingContainer {
-  position: fixed; /* Change from absolute to fixed */
+/* Greeting Container */
+#greetingContainer,
+#timeContainer {
+  position: fixed;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'JetBrainsMono Nerd Font';
+  z-index: 1;
+  color: #EBDBB2;
+}
+
+#greetingContainer {
+  position: fixed;
+  top: 20%;
   font-size: 20px;
-  text-align: center;
-  z-index: 1; /* Ensure it's above the cards */
-  color: #EBDBB2; /* Set the text color */
+  left: 50%;
 }
 
 #timeContainer {
-  position: fixed; /* Change from absolute to fixed */
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'JetBrainsMono Nerd Font';
   font-size: 30px;
-  text-align: center;
-  z-index: 1; /* Ensure it's above the cards */
-  color: #EBDBB2; /* Set the text color */
+  top: 15%;
+}
+
+/* Version and Edit Icon */
+#version,
+#editIcon {
+  z-index: 1;
+  position: absolute;
 }
 
 #version {
-  z-index: 1;
-  position: absolute;
   bottom: 5px;
   right: 5px;
 }
-  
+
 #editIcon {
-  position: fixed;
   bottom: 20px;
   right: 20px;
   cursor: pointer;
-  z-index: 999;
 }
 
 #editIcon img {
-  width: 30px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 30px;
+  height: auto;
 }
 
+/* Edit Menu */
 #editMenu {
   position: fixed;
   bottom: 60px;
@@ -181,11 +198,11 @@ body {
   transform: translateY(0);
 }
 
+/* Edit Link */
 .editLink {
   padding: 5px;
   text-decoration: none;
   display: block;
-  font-family: 'JetBrainsMono Nerd Font';
   font-size: 18px;
   text-align: center;
   color: #282828;
