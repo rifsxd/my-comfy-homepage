@@ -109,6 +109,16 @@ body {
   opacity: 1;
 }
 
+.sqr img {
+  position: absolute;
+  top: 15px; /* Adjust the top position as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px; /* Adjust the width as needed */
+  height: auto;
+}
+
+
 /* Links */
 .content a, .editLink {
   font-size: 14px;
