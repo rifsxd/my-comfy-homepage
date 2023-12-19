@@ -18,37 +18,3 @@ function getGreeting() {
         return "Go to sleep";
     }
 }
-
-// Function to update the displayed time and date
-function updateTime() {
-    var currentDateTimeElement = document.getElementById("currentDateTime");
-    var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var day = currentTime.getDate();
-    var month = currentTime.getMonth() + 1; // Month is zero-based
-    var year = currentTime.getFullYear();
-
-    // Format hours, minutes, day, and month with leading zero if less than 10
-    hours = hours < 10 ? "0" + hours : hours;
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    day = day < 10 ? "0" + day : day;
-    month = month < 10 ? "0" + month : month;
-
-    var dateTimeString = hours + ":" + minutes + " - " + year + "-" + month + "-" + day;
-    currentDateTimeElement.textContent = dateTimeString;
-}
-
-// Display greeting, update search engine text, and show the current time on page load
-document.addEventListener("DOMContentLoaded", function () {
-    var greeting = getGreeting();
-    var greetingMessage = document.getElementById("greetingMessage");
-    var hostUsername = getHostUsername();
-    greetingMessage.textContent = greeting + " " + hostUsername;
-
-    updateTime(); // Call updateTime function immediately after page load
-    updateSelectedSearchEngineText();
-});
-
-// Call updateTime function every second to keep the time updated
-setInterval(updateTime, 1000);

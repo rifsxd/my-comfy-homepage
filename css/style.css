@@ -16,12 +16,17 @@
   font-style: normal;
 }
 
-/* Body */
-body {
-  overflow: hidden;
+html, body {
+  height: 100%;
   margin: 0;
-  padding: 0;
-  background-color: #282828;
+  overflow: hidden;
+}
+
+body {
+  background-image: url('../img/wall.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: 'JetBrainsMono Nerd Font';
 }
 
@@ -40,6 +45,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 /* Square */
@@ -228,7 +234,10 @@ body {
 #currentWeather {
   text-align: center;
   color: #EBDBB2;
-  margin-top: 50px;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 30px;
   font-family: 'JetBrainsMono Nerd Font';
   z-index: 1; /* Adjust the margin as needed */
