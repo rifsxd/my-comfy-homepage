@@ -15,7 +15,7 @@ function getGreeting() {
     } else if (currentTime >= 18 && currentTime < 22) {
         return "Good evening";
     } else {
-        return "Good night";
+        return "Go to sleep";
     }
 }
 
