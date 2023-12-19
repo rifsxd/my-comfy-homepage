@@ -224,14 +224,12 @@ body {
 }
 
 /* Add styles for the weather container */
-#weatherContainer {
-  text-align: center;
-  margin-top: 20px; /* Adjust the margin as needed */
-}
-
-/* Add styles for the weather text */
+#weatherContainer,
 #currentWeather {
-  font-size: 18px; /* Adjust the font size as needed */
-  color: #333; /* Adjust the color as needed */
-  margin: 0;
+  text-align: center;
+  color: #EBDBB2;
+  margin-top: 50px;
+  font-size: 30px;
+  font-family: 'JetBrainsMono Nerd Font';
+  z-index: 1; /* Adjust the margin as needed */
 }
