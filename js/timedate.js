@@ -45,13 +45,7 @@ function updateTime() {
 
 // Display greeting, update search engine text, and show the current time on page load
 document.addEventListener("DOMContentLoaded", function () {
-    var greeting = getGreeting();
-    var greetingMessage = document.getElementById("greetingMessage");
-    var hostUsername = getHostUsername();
-    greetingMessage.textContent = greeting + " " + hostUsername;
-
     updateTime(); // Call updateTime function immediately after page load
-    updateSelectedSearchEngineText();
 });
 
 // Call updateTime function every second to keep the time updated

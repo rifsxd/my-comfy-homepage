@@ -29,3 +29,8 @@ var searchEngine = "google"; // Change this variable to choose the search engine
                 }
             }
         });
+
+// Display greeting, update search engine text, and show the current time on page load
+document.addEventListener("DOMContentLoaded", function () {
+    updateSelectedSearchEngineText();
+});

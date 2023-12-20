@@ -1,38 +1,66 @@
+// Function to fetch API keys from a JSON file
+async function getApiKeys() {
+    try {
+        // Fetch JSON file
+        const response = await fetch('../config/user.json'); // Adjust the path accordingly
+        
+        // Parse JSON
+        const data = await response.json();
+        
+        // Extract and return the openWeatherMap API key
+        return data.apiKey.openWeatherMap;
+    } catch (error) {
+        console.error('Error fetching or parsing API keys JSON:', error);
+        // Handle error as needed
+        return null;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // Get user's location and fetch weather information
-    function getLocation() {
+    async function getLocation() {
         const weatherContainer = document.getElementById('weatherContainer');
-        const apiKey = '0b3fb444200819f7267081e9f04bf7c6';
 
-        if (navigator.geolocation) {
-            // Display loading message
-            weatherContainer.innerHTML = 'Huh? No Weather!?';
+        try {
+            const apiKey = await getApiKeys();
 
-            navigator.geolocation.getCurrentPosition(
-                position => {
-                    const { latitude, longitude } = position.coords;
-                    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+            if (!apiKey) {
+                throw new Error('API key not found');
+            }
 
-                    fetch(apiUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            // Extract relevant weather information (e.g., temperature, description)
-                            const temperature = Math.round(data.main.temp - 273.15); // Convert Kelvin to Celsius
-                            const description = data.weather[0].description;
+            if (navigator.geolocation) {
+                // Display loading message
+                weatherContainer.innerHTML = 'Huh? No Weather!?';
 
-                            // Display the weather information
-                            weatherContainer.innerHTML = `${temperature}°C, ${description}`;
-                        })
-                        .catch(error => {
-                            console.error('Error fetching weather data', error);
-                            weatherContainer.innerHTML = 'Error fetching weather data';
-                        });
-                },
-                handleLocationError
-            );
-        } else {
-            console.error("Geolocation is not supported by this browser.");
-            weatherContainer.innerHTML = 'Geolocation is not supported';
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const { latitude, longitude } = position.coords;
+                        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+                        fetch(apiUrl)
+                            .then(response => response.json())
+                            .then(data => {
+                                // Extract relevant weather information (e.g., temperature, description)
+                                const temperature = Math.round(data.main.temp - 273.15); // Convert Kelvin to Celsius
+                                const description = data.weather[0].description;
+
+                                // Display the weather information
+                                weatherContainer.innerHTML = `${temperature}°C, ${description}`;
+                            })
+                            .catch(error => {
+                                console.error('Error fetching weather data', error);
+                                weatherContainer.innerHTML = 'Error fetching weather data';
+                            });
+                    },
+                    handleLocationError
+                );
+            } else {
+                console.error("Geolocation is not supported by this browser.");
+                weatherContainer.innerHTML = 'Geolocation is not supported';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            weatherContainer.innerHTML = 'Error fetching API key';
         }
     }
 
