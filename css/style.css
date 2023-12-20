@@ -170,7 +170,7 @@ body {
 }
 
 #timeContainer {
-  font-size: 30px;
+  font-size: 20px;
   top: 15%;
 }
 
@@ -229,7 +229,7 @@ body {
   background-color: #EBDBB2;
 }
 
-/* Add styles for the weather container */
+/* Styles for the weather container */
 #weatherContainer,
 #currentWeather {
   text-align: center;
@@ -240,5 +240,5 @@ body {
   transform: translate(-50%, -50%);
   font-size: 30px;
   font-family: 'JetBrainsMono Nerd Font';
-  z-index: 1; /* Adjust the margin as needed */
+  z-index: 1;
 }
