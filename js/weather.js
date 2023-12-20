@@ -2,7 +2,7 @@
 async function getApiKeys() {
     try {
         // Fetch JSON file
-        const response = await fetch('../config/user.json'); // Adjust the path accordingly
+        const response = await fetch('/config/user.json'); // Adjust the path accordingly
         
         // Parse JSON
         const data = await response.json();
