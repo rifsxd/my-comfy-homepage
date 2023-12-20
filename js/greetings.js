@@ -2,7 +2,7 @@
 async function getHostUsername() {
     try {
         // Fetch JSON file
-        const response = await fetch('/config.json'); // Adjust the path accordingly
+        const response = await fetch('config.json'); // Adjust the path accordingly
         
         // Parse JSON
         const data = await response.json();
