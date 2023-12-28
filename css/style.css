@@ -230,8 +230,7 @@ body {
 }
 
 /* Styles for the weather container */
-#weatherContainer,
-#currentWeather {
+#weatherContainer {
   text-align: center;
   color: #EBDBB2;
   position: fixed;
@@ -241,4 +240,25 @@ body {
   font-size: 30px;
   font-family: 'JetBrainsMono Nerd Font';
   z-index: 1;
+}
+
+/* Update font size and white-space property for larger screens */
+
+#greetingContainer,
+#weatherContainer,
+#timeContainer {
+  white-space: nowrap; /* Ensures the text stays on a single line */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  :root {
+    --base-font-size: 14px;
+  }
+
+  #greetingContainer,
+  #weatherContainer,
+  #timeContainer {
+    font-size: var(--base-font-size);
+  }
 }
