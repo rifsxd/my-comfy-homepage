@@ -91,12 +91,25 @@
             rel="noopener noreferrer">Visit Repo</a>
     </div>
 
+    <div id="termButton" onclick="toggleTermSection()">
+        <img src="icons/term.png" alt="Term Button">
+    </div>
+    
+
+    <div id="termSection">
+        <div id="termContent"></div>
+        <input id="termInput" onkeydown="handleTermInput(event)">
+    </div>
+    
+    
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/greetings.js" defer></script>
     <script src="js/editmenu.js" defer></script>
     <script src="js/searchengine.js" defer></script>
     <script src="js/timedate.js" defer></script>
     <script defer src="js/weather.js" defer></script>
+    <script src="js/term.js" defer></script>
 </body>
 
 </html>

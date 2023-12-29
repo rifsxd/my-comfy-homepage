@@ -23,7 +23,7 @@ html, body {
 }
 
 body {
-  background-image: url('../img/wall.png');
+  background-image: url('../img/wall.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -261,4 +261,86 @@ body {
   #timeContainer {
     font-size: var(--base-font-size);
   }
+}
+
+#termButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+
+
+#termButton img {
+  width: 36px;
+  height: auto;
+}
+
+#termSection {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%; /* Adjust as needed */
+  height: 50%; /* Adjust as needed */
+  background-image: url('../img/term-wall.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+  color: #EBDBB2;
+  border: 1px solid #4d4d4d;
+  overflow: hidden;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 12px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px #000000;
+  z-index: 1;
+}
+
+#termTitleBar {
+  background-color: #333;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+  user-select: none;
+}
+
+#termButtons {
+  display: flex;
+  gap: 5px;
+}
+
+.termButton {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#termContent {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: calc(100% - 60px);
+  overflow-y: scroll;
+  padding: 10px;
+}
+
+#termInput {
+  width: 100%;
+  height: 30px;
+  border: none;
+  background-color: #141414;
+  color: #EBDBB2;
+  outline: none;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 12px;
+  padding: 5px;
+  box-sizing: content-box;
+  border-top: 1px solid #4d4d4d;
 }
