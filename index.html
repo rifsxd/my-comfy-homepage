@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <title>Homepage</title>
     <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link id="themeStylesheet" rel="stylesheet" type="text/css" href="css/mira-theme.css">
+
 </head>
 
-<body>
+<body data-theme="mira">
+    <div class="theme-switch" onclick="toggleTheme()">
+        <div class="theme-slider">
+          <div class="theme-slider:before"></div>
+        </div>
+        <span id="themeText">Mira Theme</span>
+    </div>
+
     <header>
         <div id="weatherContainer">
             <p id="currentWeather"></p>
@@ -101,7 +109,6 @@
         <input id="termInput" onkeydown="handleTermInput(event)">
     </div>
     
-    
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/greetings.js" defer></script>
@@ -110,6 +117,7 @@
     <script src="js/timedate.js" defer></script>
     <script defer src="js/weather.js" defer></script>
     <script src="js/term.js" defer></script>
+    <script src="js/themer.js" defer></script>
 </body>
 
 </html>

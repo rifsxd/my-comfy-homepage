@@ -23,7 +23,7 @@ html, body {
 }
 
 body {
-  background-image: url('../img/wall.webp');
+  background-image: url('../img/wall-mira.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,14 +58,14 @@ body {
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  background-color: #FABD2F;
+  background-color: #E0B1FF;
   transition: all var(--transition-duration) ease-in-out;
 }
 
 .sqr span {
   line-height: var(--card-size);
   font-size: 18px;
-  color: #282828;
+  color: #0A0013;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,8 +85,8 @@ body {
 .sqr:hover {
   height: var(--expanded-card-height);
   width: var(--expanded-card-width);
-  border-top: 9px solid #EBDBB2;
-  border-bottom: 9px solid #EBDBB2;
+  border-top: 9px solid #CCC4FF;
+  border-bottom: 9px solid #CCC4FF;
 }
 
 .sqr:hover .content {
@@ -128,7 +128,7 @@ body {
 /* Links */
 .content a, .editLink {
   font-size: 14px;
-  color: #282828;
+  color: #0A0013;
   margin: var(--spacing);
   text-decoration: none;
   line-height: 25px;
@@ -142,7 +142,7 @@ body {
   width: 90%;
   margin: 0 auto;
   box-sizing: border-box;
-  background-color: #EBDBB2;
+  background-color: #CCC4FF;
 }
 
 #searchinput:focus {
@@ -159,7 +159,7 @@ body {
   transform: translate(-50%, -50%);
   font-family: 'JetBrainsMono Nerd Font';
   z-index: 1;
-  color: #EBDBB2;
+  color: #CCC4FF;
 }
 
 #greetingContainer {
@@ -202,8 +202,8 @@ body {
   position: fixed;
   bottom: 60px;
   right: 30px;
-  background-color: #FABD2F;
-  box-shadow: 0 0 10px #282828;
+  background-color: #E0B1FF;
+  box-shadow: 0 0 10px #0A0013;
   opacity: 0;
   transform: translateY(20px);
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -226,13 +226,13 @@ body {
 }
 
 .editLink:hover {
-  background-color: #EBDBB2;
+  background-color: #CCC4FF;
 }
 
 /* Styles for the weather container */
 #weatherContainer {
   text-align: center;
-  color: #EBDBB2;
+  color: #CCC4FF;
   position: fixed;
   top: 10%;
   left: 50%;
@@ -292,7 +292,7 @@ body {
   background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 0.3s ease-in-out; /* Smooth transition */
-  color: #EBDBB2;
+  color: #CCC4FF;
   border: 1px solid #4d4d4d;
   overflow: hidden;
   font-family: 'JetBrainsMono Nerd Font';
@@ -303,7 +303,7 @@ body {
 }
 
 #termTitleBar {
-  background-color: #333;
+  background-color: #CCC4FF;
   padding: 8px;
   display: flex;
   justify-content: space-between;
@@ -336,11 +336,62 @@ body {
   height: 30px;
   border: none;
   background-color: #141414;
-  color: #EBDBB2;
+  color: #CCC4FF;
   outline: none;
   font-family: 'JetBrainsMono Nerd Font';
   font-size: 12px;
   padding: 5px;
   box-sizing: content-box;
   border-top: 1px solid #4d4d4d;
+}
+
+/* Your existing CSS styles */
+body {
+  transition: background-color 0.3s;
+}
+
+.theme-switch {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1; /* Set z-index to 1 */
+}
+
+.theme-slider {
+  width: 60px;
+  height: 30px;
+  background-color: #ffb8ff;
+  border-radius: 15px; /* Make it a rounded rectangle */
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: background-color 0.3s; /* Transition background color only */
+}
+
+.theme-slider:before {
+  content: '';
+  width: 26px;
+  height: 26px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.3s; /* Transition transform property only */
+}
+
+.theme-switch.active .theme-slider {
+  background-color: #f2b1ff; /* Change color when active */
+}
+
+.theme-switch.active .theme-slider:before {
+  transform: translateX(30px);
+}
+
+#themeText {
+  margin-left: 10px;
+  color: #CCC4FF;
 }
