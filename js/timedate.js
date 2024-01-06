@@ -1,4 +1,3 @@
-// Function to update the displayed time and date
 function updateTime() {
     var currentDateTimeElement = document.getElementById("currentDateTime");
     var currentTime = new Date();
@@ -11,6 +10,11 @@ function updateTime() {
     // Array of weekday names and month names
     var weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    // Convert hours to 12-hour format and determine AM/PM
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Handle midnight (12:00 AM)
 
     // Format hours and minutes with leading zero if less than 10
     hours = hours < 10 ? "0" + hours : hours;
@@ -38,10 +42,9 @@ function updateTime() {
     var weekday = weekdays[currentTime.getDay()];
     var month = months[monthIndex];
 
-    var dateTimeString = hours + ":" + minutes + " - " + weekday + ", " + month + " " + formattedDay + " - " + year;
+    var dateTimeString = hours + ":" + minutes + " " + ampm + " - " + weekday + ", " + month + " " + formattedDay + " - " + year;
     currentDateTimeElement.textContent = dateTimeString;
 }
-
 
 // Display greeting, update search engine text, and show the current time on page load
 document.addEventListener("DOMContentLoaded", function () {
