@@ -42,7 +42,7 @@ function updateTime() {
     var weekday = weekdays[currentTime.getDay()];
     var month = months[monthIndex];
 
-    var dateTimeString = hours + ":" + minutes + " " + ampm + " - " + weekday + ", " + month + " " + formattedDay + ", " + year;
+    var dateTimeString = weekday + ", " + month + " " + formattedDay + ", " + year + " - " + hours + ":" + minutes + " " + ampm;
     currentDateTimeElement.textContent = dateTimeString;
 }
 
