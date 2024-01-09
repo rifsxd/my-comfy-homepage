@@ -5,7 +5,7 @@ function toggleTheme() {
     const currentTheme = document.body.getAttribute("data-theme");
     const themeStylesheet = document.getElementById("themeStylesheet");
 
-    const newTheme = currentTheme === "mira" ? "gruv" : "mira";
+    const newTheme = currentTheme === "gruv" ? "mira" : "gruv";
     const newThemeText = newTheme.charAt(0).toUpperCase() + newTheme.slice(1);
 
     themeStylesheet.setAttribute("href", `css/${newTheme}-theme.css`);
@@ -13,7 +13,7 @@ function toggleTheme() {
     themeText.innerText = `${newThemeText} Theme`;
 
     // Toggle 'active' class on theme switch
-    themeSwitch.classList.toggle('active', newTheme !== "mira");
+    themeSwitch.classList.toggle('active', newTheme !== "gruv");
 
     // Save the theme preference to localStorage
     localStorage.setItem("theme", newTheme);
@@ -31,6 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
         themeText.innerText = `${storedTheme.charAt(0).toUpperCase() + storedTheme.slice(1)} Theme`;
 
         // Add 'active' class to theme switch if the theme is not the default one
-        themeSwitch.classList.toggle('active', storedTheme !== "mira");
+        themeSwitch.classList.toggle('active', storedTheme !== "gruv");
     }
 });

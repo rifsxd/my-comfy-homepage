@@ -365,7 +365,7 @@ body {
 .theme-slider {
   width: 60px;
   height: 30px;
-  background-color: #ddd;
+  background-color: #FABD2F;
   border-radius: 15px; /* Make it a rounded rectangle */
   display: flex;
   align-items: center;
@@ -377,13 +377,13 @@ body {
   content: '';
   width: 26px;
   height: 26px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 50%;
   transition: transform 0.3s; /* Transition transform property only */
 }
 
 .theme-switch.active .theme-slider {
-  background-color: #ffee00; /* Change color when active */
+  background-color: #FABD2F; /* Change color when active */
 }
 
 .theme-switch.active .theme-slider:before {
